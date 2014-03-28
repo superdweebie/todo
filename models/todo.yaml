@@ -1,0 +1,12 @@
+name: todo
+
+persister: json
+
+env:
+  - server
+  - client
+
+fields:
+  id: id
+  completed: boolean
+  title: string

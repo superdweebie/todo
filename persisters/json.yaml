@@ -1,0 +1,6 @@
+name: json
+
+module: shakedown/persisters/json
+
+config:
+  dir: data

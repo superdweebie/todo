@@ -1,0 +1,9 @@
+
+app: todo
+bundles:
+  todo:
+    resources:
+      models: models
+      public: public
+      persisters: persisters
+      widgets: widgets

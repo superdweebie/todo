@@ -1,0 +1,22 @@
+<section>
+    <header id="header">
+        <h1>todos</h1>
+        <f-form>
+            <f-textbox name="add" autofocus placeholder="What needs to be done?"></f-textbox>
+        </f-form>
+    </header>
+    <section>
+        <f-checkbox value="{{allSelected}}"></f-checkbox>
+        <ul name="items">
+        </ul>
+    </section>
+    <footer>
+        <span><strong>{{remaining}}</strong><w-plural one="item" many="items" value="{{remaining}}"></w-plural> left</span>
+        <ul>
+            <li><a href="" {% if (filter == 'all') %}class="selected"{% endif %}>All</a></li>
+            <li><a href="active" {% if (filter == 'active') %}class="selected"{% endif %}>Active</a></li>
+            <li><a href="completed" {% if (filter == 'completed') %}class="selected"{% endif %}>Completed</a></li>
+        </ul>
+        <button name="clear" hook="click">Clear completed ({{completed}})</button>
+    </footer>
+</section>
