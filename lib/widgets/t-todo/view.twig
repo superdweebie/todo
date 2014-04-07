@@ -1,0 +1,34 @@
+<section>
+    <header id="header">
+        <h1>todos</h1>
+        <form onsubmit="{{create(title)}}">
+            <input type="text" autofocus placeholder="What needs to be done?" value="{{title}}" />
+        </form>
+    </header>
+    <section>
+        <input type="checkbox" class="selectAll" checked="{{allSelected}}"/>
+        <ul>
+            {% for task in tasks %}
+            <li>
+                <div class="view">
+                    <input type="checkbox" value="{{task.completed}}" class="toggle"></input>
+                    <label name="view" ondblclick="{{edit(task)}}">{{task.title}}</label>
+                    <button name="destroy" class="destroy" hook="click"></button>
+                </div>
+                <form onsubmit="{{update(task)}}">
+                    <input type="text" value="{{task.title}}" onblur="{{update(task)}}" ></input>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </section>
+    <footer>
+        <span><strong>{{remaining(tasks)}}</strong> {{plural('item', 'items', remaining(tasks))}} left</span>
+        <ul>
+            <li><a href="" {{highlight('all')}}>All</a></li>
+            <li><a href="active" {{highlight('active')}}>Active</a></li>
+            <li><a href="completed" {{highlight('completed')}}>Completed</a></li>
+        </ul>
+        <button name="clear" onclick="{{clearCompleted}}">Clear completed ({{completed(tasks)}})</button>
+    </footer>
+</section>

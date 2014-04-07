@@ -1,1 +1,0 @@
-require('shakedown')([__dirname]);
